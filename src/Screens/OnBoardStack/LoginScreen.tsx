@@ -9,11 +9,10 @@ import { Login_api } from "../../config/apiclient/Api";
 import { useDispatch, useSelector } from "react-redux";
 import {setAccessToken, UserState} from '../../Redux/UserSlice'
 import { setvaluefromlocalstorage } from "../../global/utility/utility";
+import { ToastContainer } from "react-toastify";
 const LoginScreen: React.FC = () => {
   const token=useSelector<UserState>(state=>state.user);
   const dispatch=useDispatch();
-  console.log('reduxstate is',token)
-  console.log('process.env.BASEURL',process.env.REACT_APP_BASEURL)
   const [showtitle,setshowTitle]=useState<boolean>(false);
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email address").required("Required"),
@@ -43,8 +42,9 @@ const LoginScreen: React.FC = () => {
 
   return (
     <div className={styles.container}>
+      <ToastContainer position="top-center" theme="light"/>
       {<h4 className="text-center text-white mb-5 font-weight-bold" style={{visibility:showtitle?'visible':"hidden"}}> {myString.welcome_message}</h4>}
-      <div className={styles.form_container} onMouseEnter={()=>{console.log('hi');setshowTitle(true)}} onMouseLeave={()=>setshowTitle(false)}>
+      <div className={styles.form_container} onMouseEnter={()=>{setshowTitle(true)}} onMouseLeave={()=>setshowTitle(false)}>
         <h2 className="text-white font-weight-bold">{myString.login}</h2>
         <form
           onSubmit={formik.handleSubmit}
