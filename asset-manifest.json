@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/employewise/static/css/main.2619dc02.css",
+    "main.js": "/employewise/static/js/main.09e4c789.js",
+    "static/js/453.704e11cb.chunk.js": "/employewise/static/js/453.704e11cb.chunk.js",
+    "static/media/dummy-nature.jpg": "/employewise/static/media/dummy-nature.85564ea330b1eea5d297.jpg",
+    "index.html": "/employewise/index.html",
+    "main.2619dc02.css.map": "/employewise/static/css/main.2619dc02.css.map",
+    "main.09e4c789.js.map": "/employewise/static/js/main.09e4c789.js.map",
+    "453.704e11cb.chunk.js.map": "/employewise/static/js/453.704e11cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2619dc02.css",
+    "static/js/main.09e4c789.js"
+  ]
+}
