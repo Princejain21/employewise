@@ -1,6 +1,7 @@
 {
   "name": "employeewise",
   "version": "0.1.0",
+  "homepage": "https://princejain21.github.io/employewise",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
@@ -27,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +52,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4"
+    "@types/react-dom": "^19.0.4",
+    "gh-pages": "^6.3.0"
   }
 }
