@@ -158,8 +158,8 @@ const Homescreen:React.FC<Homeprops> = () => {
   return (
      <div className="container mt-4">
       <ToastContainer position='top-center' theme="colored"/>
-      <div className='d-flex align-items-center justify-content-between'>
-      <h2 className="text-center mb-4">User List</h2>
+      <div className='d-flex align-items-center justify-content-between flex-wrap'>
+      <h3 className="text-center mb-4">User List</h3>
       <form className="form-inline my-2 my-lg-0">
       <input className="form-control mr-sm-2" type="search" value={searchText} onChange={(e)=>{handleSearch(e.target.value)}} placeholder="Search" aria-label="Search"/>
     </form>
