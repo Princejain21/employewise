@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "jsx": "react-jsx",
+      "module": "ESNext",
+      "target": "ES6",
+      "strict": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "paths": {
+      "react": ["./node_modules/@types/react"]
+    }
+    },
+    "include": ["src"]
+  }
+  

@@ -1,0 +1,77 @@
+.container {
+    min-height: 100vh;
+    background: url('../../assets/dummy-nature.jpg') no-repeat center;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form_container {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    min-width: 30vw;
+}
+
+.input_container {
+    background: transparent; /* Fully transparent */
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 22px;
+    padding: 0 1rem 0 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    background: transparent; /* No background */
+    padding: 10px;
+    color: #fff;
+    outline: none;
+    flex-grow: 1;
+    border: 0;
+}
+
+.input:active,
+.input:focus {
+    background: transparent; /* No change on focus */
+}
+
+.input:disabled,
+.input[readonly] {
+    background: transparent !important;
+}
+
+.input::placeholder {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.submit_btn {
+    width: 100%;
+    border-radius: 24px;
+    padding: 0.7rem;
+    font-size: 16px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.2); /* Light transparent */
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.submit_btn:hover {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #b1b1b1;
+}

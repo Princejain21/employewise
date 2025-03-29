@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+# .env write now i'm sending it to github so you can check it own your end but if you don't want to send it onserver please uncomment this.
 
 # testing
 /coverage
