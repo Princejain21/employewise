@@ -123,7 +123,7 @@ const UserFormModal: React.FC<UserFormProps> = ({ isOpen, onClose, userData,upda
               <Field name="email" type="email" className="form-control" />
               <ErrorMessage name="email" component="p" className="text-danger" />
             </div>
-            <CustomButton isLoading={isloading} className="btn btn-primary"  type="submit"  loaderName="ClipLoader" color="#fff" label={myString.submit}/>
+            <CustomButton isloading={isloading} className="btn btn-primary"  type="submit"  loadername="ClipLoader" color="#fff" label={myString.submit}/>
           </Form>
         )}
       </Formik>

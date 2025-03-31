@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import { setAccessToken } from "../../Redux/UserSlice";
 
 export const getvaluefromlocalstorage=(str:string)=>{
     const getdata= localStorage.getItem(str);
@@ -35,3 +36,13 @@ export const showalertmessage=(type:string,message:string)=>{
             return;
     }
 }
+
+export const getotken=async(navigate:any,dispatch:any)=>{
+    const checkToken:any=await getvaluefromlocalstorage('userToken');
+    if(checkExistancy(checkToken)){
+      navigate('/');
+    }else{
+      dispatch(setAccessToken(checkToken));
+      navigate('/home');
+    }
+  }

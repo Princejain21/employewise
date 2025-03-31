@@ -6,9 +6,11 @@ import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin5Line } from "react-icons/ri"
 import UserFormModal from './UserModalAction/UserFormModal';
 import { ToastContainer } from 'react-toastify';
-import { showalertmessage } from '../../global/utility/utility';
+import { getvaluefromlocalstorage, showalertmessage } from '../../global/utility/utility';
 import CustomButton from '../../CommonComponents/CustomButton';
 import myString from '../../config/utility/Mystring';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser, UserState } from '../../Redux/UserSlice';
 interface Homeprops{
     
 }
@@ -22,6 +24,7 @@ interface User {
 
 const Homescreen:React.FC<Homeprops> = () => {
   const [isloading,setisloading]=useState<boolean>(true);
+  const [email,setemail]=useState<string>('');
   const [page,setpage]=useState<number>(1);
   const [totalpages,settotalPages]=useState<number>(0)
   const [userList,setuserList]=useState<User[]>([]);
@@ -33,7 +36,7 @@ const Homescreen:React.FC<Homeprops> = () => {
   const [searchText,setsearchText]=useState<string>("");
   const [currentUser,setcurrentUser]=useState<User>();
   const updateRefresher=()=>{setrefresh(!refresh)};
-
+  const dispatch=useDispatch();
 
 
   //API SECTION
@@ -138,8 +141,8 @@ const Homescreen:React.FC<Homeprops> = () => {
               <td>{user.email}</td>
               <td>
                 <div className='d-flex align-items-center justify-content-center'>
-                  <CustomButton isLoading={false} loaderName='ClipLoader' className='border-0 pointer btn mr-2' onClick={()=>handleEdit(user)}  label={<FaRegEdit size={20} color='green'/>}/>
-                  <CustomButton isLoading={isDeleteLoading} loaderName='ClipLoader' className='border-0 pointer btn' onClick={()=>handleDelete(user)}  label={<RiDeleteBin5Line size={20} color='red'/>}/>
+                  <CustomButton isloading={false} loadername='ClipLoader' className='border-0 pointer btn mr-2' onClick={()=>handleEdit(user)}  label={<FaRegEdit size={20} color='green'/>}/>
+                  <CustomButton isloading={isDeleteLoading} loadername='ClipLoader' className='border-0 pointer btn' onClick={()=>handleDelete(user)}  label={<RiDeleteBin5Line size={20} color='red'/>}/>
                 </div>
               </td>
             </tr>

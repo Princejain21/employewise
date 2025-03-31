@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import styles from "../../CSS/componentSpecificCSS/Login.module.css";
@@ -7,12 +7,14 @@ import { FaUser } from "react-icons/fa";
 import { IoLockClosed } from "react-icons/io5";
 import { Login_api } from "../../config/apiclient/Api";
 import { useDispatch, useSelector } from "react-redux";
-import {setAccessToken, UserState} from '../../Redux/UserSlice'
-import { setvaluefromlocalstorage } from "../../global/utility/utility";
+import {setAccessToken, setUser, UserState} from '../../Redux/UserSlice'
+import { getotken, setvaluefromlocalstorage } from "../../global/utility/utility";
 import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const LoginScreen: React.FC = () => {
   const token=useSelector<UserState>(state=>state.user);
   const dispatch=useDispatch();
+  const navigate=useNavigate();
   const [showtitle,setshowTitle]=useState<boolean>(false);
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email address").required("Required"),
@@ -31,7 +33,9 @@ const LoginScreen: React.FC = () => {
         if(status===200){
           if(data.token){
             setvaluefromlocalstorage("userToken",data.token);
-            dispatch(setAccessToken(data.token))
+            setvaluefromlocalstorage("user",JSON.stringify({email:values.email}));
+            dispatch(setAccessToken(data.token));
+            dispatch(setUser({email:values.email}))
           }
         }else{
           console.log(data);
@@ -39,7 +43,9 @@ const LoginScreen: React.FC = () => {
       }
     },
   });
-
+  useEffect(()=>{
+    getotken(navigate,dispatch)
+  },[])
   return (
     <div className={styles.container}>
       <ToastContainer position="top-center" theme="light"/>
